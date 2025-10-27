@@ -35,7 +35,6 @@ config = {
 function_neural_network_main(processed_data_path=processed_data_path,
     test_size=0.2,
     random_state=42,
-    batch_size=32,
     config=config,
     num_epochs=1000,
     lr=1e-3,
