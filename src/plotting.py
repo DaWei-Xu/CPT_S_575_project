@@ -29,7 +29,8 @@ def function_plot_training_curves(history, save_path):
     ax1.plot(epochs, history["train_loss"], label="Training Loss", linewidth=2)
     ax1.plot(epochs, history["val_loss"], label="Validation Loss", linewidth=2)
     ax1.set_xlabel("Epochs", fontsize=12)
-    ax1.set_ylabel("Loss", fontsize=12)
+    ax1.set_ylabel("Loss (log scale)", fontsize=12)
+    ax1.set_yscale("log")
     ax1.legend(loc="upper right")
     ax1.grid(True, linestyle="--", alpha=0.6)
 
