@@ -78,6 +78,10 @@ def train_model(model, train_loader, X_val, y_val, target_cols,
     train_loss_history = []
     val_loss_history = []
 
+    if os.path.exists(history_path):
+        print(f"Training history file already exists. Skipping training.")
+        return None
+
     for epoch in range(num_epochs):
         model.train()
         total_loss = 0.0
@@ -129,7 +133,7 @@ def train_model(model, train_loader, X_val, y_val, target_cols,
     print(f"Training history saved to '{history_path}'")
 
     print(f"Training completed. Best validation loss: {best_val_loss:.4f}")
-    return model
+    return None
 
 
 def evaluate_model(model, X_val, y_val, target_cols, device, return_loss=False):
@@ -162,7 +166,6 @@ def function_neural_network_main(
         processed_data_path,
         test_size,
         random_state,
-        batch_size,
         config,
         num_epochs,
         lr,
@@ -186,7 +189,7 @@ def function_neural_network_main(
     X_train, X_val, y_train, y_val = train_test_split(X, y, \
                             test_size=test_size, random_state=random_state)
     train_ds = TensorDataset(X_train, y_train)
-    train_dl = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
+    train_dl = DataLoader(train_ds, batch_size=len(train_ds), shuffle=True)
 
     # ---- Model config ----
     config = config
@@ -200,7 +203,7 @@ def function_neural_network_main(
     print(f"Training on {device.upper()} ...")
 
     # ---- Train + record history ----
-    model = train_model(
+    train_model(
         model, train_dl, X_val, y_val, target_cols,
         num_epochs, lr,
         scheduler_factor, scheduler_patience, device,
