@@ -1,0 +1,8 @@
+rank,accuracy
+realm (Reference),0.984239335598339
+phylum (Reference),0.9830124575311439
+class (Reference),0.9826349565873914
+order (Reference),0.03539071347678369
+family (Reference),0.34154397885994714
+subfamily (Reference),0.3456964892412231
+genus (Reference),0.5151944129860324

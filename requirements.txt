@@ -1,0 +1,6 @@
+# Core Python Libraries
+numpy
+pandas
+matplotlib
+scikit-learn
+torch

@@ -1,0 +1,8 @@
+rank,n_masked,fill_accuracy
+realm (Reference),15702,0.9647815564896192
+phylum (Reference),15741,0.9627723778667175
+class (Reference),15741,0.9619465091163204
+order (Reference),717,0.0
+family (Reference),6186,0.0
+subfamily (Reference),6069,0.0
+genus (Reference),14454,0.06261242562612426
